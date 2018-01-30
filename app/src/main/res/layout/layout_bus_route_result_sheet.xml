@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="RoutePlanActivity">
+    <!--android:descendantFocusability="beforeDescendants"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sheet_peakHeight"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="@dimen/space04"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space08"
+            android:background="@drawable/shape_bg_gray"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/bus_paths_viewpage"
+            android:layout_width="match_parent"
+            android:layout_height="94dp"/>
+
+        <com.rd.PageIndicatorView
+            android:id="@+id/pageIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="6dp"
+            android:layout_marginBottom="4dp"
+            android:layout_gravity="center_horizontal"
+            app:piv_radius="@dimen/space03"
+            app:piv_animationType="swap"
+            app:piv_dynamicCount="true"
+            app:piv_interactiveAnimation="true"
+            app:piv_selectedColor="@color/colorPrimary"
+            app:piv_unselectedColor="@color/line"
+            app:piv_viewPager="@id/bus_paths_viewpage" />
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bus_segment_list"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+</LinearLayout>

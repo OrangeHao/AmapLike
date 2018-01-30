@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="RoutePlanActivity">
+
+    <com.amap.api.maps.TextureMapView
+        android:id="@+id/route_plan_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:id="@+id/parent_toplayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/TopLayout_Behavior"
+        >
+
+        <ImageView
+            android:id="@+id/route_plan_loca_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space04"
+            android:layout_marginLeft="@dimen/space08"
+            android:background="@drawable/selector_btn_loca"
+            android:src="@drawable/icon_c11"
+            android:layout_centerVertical="true"/>
+
+        <RelativeLayout
+            android:id="@+id/topLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:paddingTop="@dimen/space08"
+            app:layout_behavior="@string/TopLayout_Behavior"
+            >
+
+            <ImageView
+                android:id="@+id/route_plan_return_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space08"
+                android:src="@drawable/icon_return"/>
+
+            <RelativeLayout
+                android:id="@+id/route_plan_address_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/route_plan_return_btn"
+                android:layout_marginLeft="@dimen/space10">
+
+                <ImageView
+                    android:id="@+id/route_plan_exchange_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/space13"
+                    android:src="@drawable/icon_exchange"/>
+
+                <LinearLayout
+                    android:id="@+id/route_plan_start_edit_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space04"
+                    android:background="@drawable/shape_bg_route_plan_edit"
+                    android:layout_toLeftOf="@id/route_plan_exchange_btn"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/space08"
+                        android:text="@string/route_plan_from"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font16"/>
+
+                    <TextView
+                        android:id="@+id/route_plan_from_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/space10"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/route_plan_to_edit_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/space04"
+                    android:background="@drawable/shape_bg_route_plan_edit"
+                    android:layout_below="@id/route_plan_start_edit_layout"
+                    android:layout_toLeftOf="@id/route_plan_exchange_btn"
+                    android:layout_marginTop="@dimen/space10"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/route_plan_to"
+                        android:layout_marginLeft="@dimen/space08"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font16"/>
+
+                    <TextView
+                        android:id="@+id/route_plan_to_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:background="@null"
+                        android:layout_marginLeft="@dimen/space10"
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/route_plan_tab_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@id/route_plan_address_layout"
+                app:tabTextColor="@color/transwhite"
+                app:tabBackground="@null"
+                app:tabSelectedTextColor="@color/white"
+                app:tabIndicatorColor="@color/white"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/bus_result_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/topLayout"
+            android:background="@color/white"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+
+
+
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        app:behavior_peekHeight="80dp"
+        app:anchorPoint="100dp"
+        app:behavior_hideable="false"
+        app:layout_behavior="@string/NoAnchor_BottomSheet_Behavior"
+        >
+
+        <include
+            layout="@layout/layout_route_plan"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/route_plan_float_btn"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_margin="@dimen/space16"
+        android:src="@drawable/icon_route_btn"
+        app:layout_behavior="@string/FAB_Behavior"
+        app:layout_anchor="@id/bottom_sheet"
+        app:layout_anchorGravity="right|top"
+        app:borderWidth="0dp"
+        android:clickable="true"/>
+
+
+</android.support.design.widget.CoordinatorLayout>

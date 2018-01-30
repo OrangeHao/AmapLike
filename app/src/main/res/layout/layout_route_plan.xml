@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="RoutePlanActivity">
+<!--android:descendantFocusability="beforeDescendants"-->
+
+
+    <LinearLayout
+        android:id="@+id/sheet_head_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/space08"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="@dimen/space04"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space06"
+            android:background="@drawable/shape_bg_gray"
+            />
+
+        <LinearLayout
+            android:id="@+id/route_plan_path_general_layout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space04"
+            android:layout_marginRight="@dimen/space04"
+            android:layout_marginTop="@dimen/space08"
+            android:background="@drawable/shape_bg_drive_general"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textColor="@color/white"
+                android:background="@drawable/shape_bg_green"
+                android:gravity="center"
+                android:text="@string/route_plan_drive_fast"
+                />
+
+            <TextView
+                android:id="@+id/path_general_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/font18"
+                />
+
+            <TextView
+                android:id="@+id/path_general_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/font18"
+                />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/path_detail_traffic_light_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/space12"
+                android:layout_marginTop="@dimen/space12"
+                android:layout_marginBottom="@dimen/space12"
+                tools:text="adadf"
+                android:textSize="@dimen/font16"
+                android:textColor="@color/textDefualt2"
+                />
+
+            <TextView
+                android:id="@+id/navi_start_btn_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space08"
+                android:layout_marginRight="@dimen/space08"
+                android:paddingTop="@dimen/space08"
+                android:paddingLeft="@dimen/space16"
+                android:paddingRight="@dimen/space16"
+                android:paddingBottom="@dimen/space08"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/selector_btn_theme"
+                android:text="@string/route_plan_start_navi"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font16" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/route_plan_poi_detail_layout"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:padding="@dimen/space08">
+
+        <TextView
+            android:id="@+id/route_plan_poi_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="搜索结果"
+            android:textColor="@color/textDefualt"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/route_plan_poi_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space10"
+            tools:text="具体位置"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/textDefualt2"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/path_detail_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/navi_start_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space20"
+            android:background="@drawable/selector_btn_theme"
+            android:padding="@dimen/space08"
+            android:text="@string/route_plan_start_navi"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font16" />
+    </LinearLayout>
+
+</LinearLayout>

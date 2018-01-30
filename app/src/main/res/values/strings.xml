@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">AmapLike</string>
+
+
+    <string name="route_plan_from">从</string>
+    <string name="route_plan_to">到</string>
+    <string name="route_plan_home">回家(长按设置)</string>
+    <string name="route_plan_company">去公司(长按设置)</string>
+    <string name="route_plan_setpoi">点击设置</string>
+    <string name="route_plan_drive_fast">速度最快</string>
+    <string name="route_plan_drive">驾车</string>
+    <string name="route_plan_bus">公交</string>
+    <string name="route_plan_walk">步行</string>
+    <string name="route_plan_ride">骑行</string>
+    <string name="route_plan_start_navi">开始导航</string>
+    <string name="route_plan_navi_amap">高德地图</string>
+    <string name="route_plan_navi_amap_not">高德地图(未安装)</string>
+    <string name="route_plan_navi_bmap">百度地图</string>
+    <string name="route_plan_navi_bmap_not">百度地图(未安装)</string>
+    <string name="route_plan_path_traffic_lights">红绿灯%1$s个</string>
+
+    <string name="poi_search_my_location">我的位置</string>
+    <string name="no_result">对不起，没有搜索到相关数据！</string>
+    <string name="poi_search_error">搜索出错</string>
+    <string name="poi_search_hint">输入搜索关键字</string>
+    <string name="poi_search_collect_location">收藏的点</string>
+    <string name="poi_search_choose_location_from_map">地图选点</string>
+    <string name="poi_search_choose_location_confirm">确定选点</string>
+
+    <string name="Anchor_BottomSheet_Behavior">com.orange.amaplike.behavior.AnchorBottomSheetBehavior</string>
+    <string name="NoAnchor_BottomSheet_Behavior">com.orange.amaplike.behavior.NoAnchorBottomSheetBehavior</string>
+    <string name="TopLayout_Behavior">com.orange.amaplike.behavior.TopLayoutBehavior</string>
+    <string name="FAB_Behavior">com.orange.amaplike.behavior.FloatActionBtnBehavior</string>
+</resources>

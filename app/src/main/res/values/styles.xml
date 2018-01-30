@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- app背景-->
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <!-- APP默认字体颜色-->
+        <item name="android:textColor">@color/textDefualt</item>
+        <!-- APP默认字体大小-->
+        <!-- 导航栏-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!-- 标题栏-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- 系统控件样式-->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- 编辑框-->
+    </style>
+
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space01">1dp</dimen>
+    <dimen name="space02">2dp</dimen>
+    <dimen name="space03">3dp</dimen>
+    <dimen name="space04">4dp</dimen>
+    <dimen name="space05">5dp</dimen>
+    <dimen name="space06">6dp</dimen>
+    <dimen name="space08">8dp</dimen>
+    <dimen name="space10">10dp</dimen>
+    <dimen name="space12">12dp</dimen>
+    <dimen name="space13">13dp</dimen>
+    <dimen name="space16">16dp</dimen>
+    <dimen name="space20">20dp</dimen>
+    <dimen name="space24">24dp</dimen>
+    <dimen name="space30">30dp</dimen>
+    <dimen name="space40">40dp</dimen>
+    <dimen name="space50">50dp</dimen>
+    <dimen name="space70">70dp</dimen>
+    <dimen name="space80">80dp</dimen>
+    <dimen name="space100">100dp</dimen>
+    <dimen name="space150">150dp</dimen>
+
+
+    <dimen name="font10">10sp</dimen>
+    <dimen name="font12">12sp</dimen>
+    <dimen name="font14">14sp</dimen>
+    <dimen name="font16">16sp</dimen>
+    <dimen name="font18">18sp</dimen>
+    <dimen name="font20">20sp</dimen>
+    <dimen name="font22">22sp</dimen>
+    <dimen name="font24">24sp</dimen>
+    <dimen name="font26">26sp</dimen>
+    <dimen name="font28">28sp</dimen>
+    <dimen name="font30">30sp</dimen>
+    <dimen name="font36">36sp</dimen>
+    <dimen name="font40">40sp</dimen>
+    <dimen name="font46">46sp</dimen>
+    <dimen name="font55">55sp</dimen>
+
+
+    <dimen name="sheet_peakHeight">120dp</dimen>
+</resources>

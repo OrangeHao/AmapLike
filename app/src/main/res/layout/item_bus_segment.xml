@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white" >
+
+    <ImageView
+        android:id="@+id/bus_seg_split_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:background="#e0e0e0"/>
+
+    <ImageView
+        android:id="@+id/bus_dir_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/dir_start" />
+
+    <TextView
+        android:id="@+id/bus_line_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/bus_dir_icon"
+        android:layout_marginLeft="20dp"
+        android:textSize="@dimen/font18"
+        />
+
+
+
+</RelativeLayout>
