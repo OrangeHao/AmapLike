@@ -26,53 +26,183 @@
 
         <LinearLayout
             android:id="@+id/route_plan_path_general_layout"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/space04"
             android:layout_marginRight="@dimen/space04"
             android:layout_marginTop="@dimen/space08"
-            android:background="@drawable/shape_bg_drive_general"
+            android:orientation="horizontal"
             >
-
-            <TextView
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/path_layout"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:textColor="@color/white"
-                android:background="@drawable/shape_bg_green"
-                android:gravity="center"
-                android:text="@string/route_plan_drive_fast"
-                />
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/shape_bg_drive_general"
+                >
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_bg_green"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="@string/route_plan_default"
+                    android:textColor="@color/white" />
 
-            <TextView
-                android:id="@+id/path_general_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="@dimen/font18"
-                />
+                <TextView
+                    android:id="@+id/path_general_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/font18"
+                    />
 
-            <TextView
-                android:id="@+id/path_general_distance"
-                android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/path_general_distance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/font18"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/path_layout1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:textColor="@color/colorPrimary"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="@dimen/font18"
-                />
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/space08"
+                android:orientation="vertical"
+                android:background="@drawable/shape_bg_drive_general"
+                >
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_bg_green"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="@string/route_plan_plan2"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/path_general_time1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/font18"
+                    />
+
+                <TextView
+                    android:id="@+id/path_general_distance1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/font18"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/path_layout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/space08"
+                android:orientation="vertical"
+                android:background="@drawable/shape_bg_drive_general"
+                >
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_bg_green"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="@string/route_plan_plan3"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/path_general_time2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/font18"
+                    />
+
+                <TextView
+                    android:id="@+id/path_general_distance2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/font18"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/route_plan_path_general_layout"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/space04"-->
+            <!--android:layout_marginRight="@dimen/space04"-->
+            <!--android:layout_marginTop="@dimen/space08"-->
+            <!--android:background="@drawable/shape_bg_drive_general"-->
+            <!--&gt;-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="2dp"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:background="@drawable/shape_bg_green"-->
+                <!--android:gravity="center"-->
+                <!--android:text="@string/route_plan_drive_fast"-->
+                <!--/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/path_general_time"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColor="@color/colorPrimary"-->
+                <!--android:gravity="center"-->
+                <!--android:textStyle="bold"-->
+                <!--android:textSize="@dimen/font18"-->
+                <!--/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/path_general_distance"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="2dp"-->
+                <!--android:textColor="@color/colorPrimary"-->
+                <!--android:gravity="center"-->
+                <!--android:textStyle="bold"-->
+                <!--android:textSize="@dimen/font18"-->
+                <!--/>-->
+
+        <!--</LinearLayout>-->
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             >
 
             <TextView
@@ -83,12 +213,14 @@
                 android:layout_marginLeft="@dimen/space12"
                 android:layout_marginTop="@dimen/space12"
                 android:layout_marginBottom="@dimen/space12"
+                android:visibility="gone"
                 tools:text="adadf"
                 android:textSize="@dimen/font16"
                 android:textColor="@color/textDefualt2"
                 />
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/navi_start_btn_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

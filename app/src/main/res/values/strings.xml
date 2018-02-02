@@ -9,6 +9,9 @@
     <string name="route_plan_setpoi">点击设置</string>
     <string name="route_plan_search_poi">查找地点、公交、地铁</string>
     <string name="route_plan_drive_fast">速度最快</string>
+    <string name="route_plan_default">推荐方案</string>
+    <string name="route_plan_plan2">方案二</string>
+    <string name="route_plan_plan3">方案三</string>
     <string name="route_plan_drive">驾车</string>
     <string name="route_plan_bus">公交</string>
     <string name="route_plan_walk">步行</string>

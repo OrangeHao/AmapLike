@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/space08"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/shape_bg_drive_general"
+            >
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bg_green"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/route_plan_default"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/drive_general_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/font18"
+                />
+
+            <TextView
+                android:id="@+id/drive_general_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/font18"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/space08"
+            android:orientation="vertical"
+            android:background="@drawable/shape_bg_drive_general"
+            >
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bg_green"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/route_plan_plan2"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/drive_general_time1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/font18"
+                />
+
+            <TextView
+                android:id="@+id/drive_general_distance1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/font18"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/space08"
+            android:orientation="vertical"
+            android:background="@drawable/shape_bg_drive_general"
+            >
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_bg_green"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/route_plan_plan3"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/drive_general_time2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/font18"
+                />
+
+            <TextView
+                android:id="@+id/drive_general_distance2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/font18"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/navi_start_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space08"
+            android:layout_marginRight="@dimen/space08"
+            android:paddingTop="@dimen/space08"
+            android:paddingLeft="@dimen/space16"
+            android:paddingRight="@dimen/space16"
+            android:paddingBottom="@dimen/space08"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/selector_btn_theme"
+            android:text="@string/route_plan_start_navi"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font16" />
+    </RelativeLayout>
+
+
+</LinearLayout>
