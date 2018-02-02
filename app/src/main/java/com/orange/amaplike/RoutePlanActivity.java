@@ -12,6 +12,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
@@ -87,6 +88,7 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
 
     @BindView(R.id.topLayout)RelativeLayout mTopLayout;
     @BindView(R.id.route_plan_tab_layout) TabLayout mTabLayout;
+    @BindView(R.id.top_search_layout) LinearLayout mTopSearchLayout;
     @BindView(R.id.route_plan_map) TextureMapView mMapView;
     @BindView(R.id.route_plan_loca_btn) ImageView mImageViewBtn;
     @BindView(R.id.coordinatorlayout) CoordinatorLayout mCoordinatorLayout;
@@ -95,6 +97,7 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
     @BindView(R.id.bus_result_recyclerView)RecyclerView mBusResultRview;
 
 
+    @BindView(R.id.route_plan_float_btn)FloatingActionButton mFloatBtn;
     @BindView(R.id.sheet_head_layout)LinearLayout mSheetHeadLayout;
     @BindView(R.id.route_plan_poi_title) TextView mPoiTitleText;
     @BindView(R.id.bottom_sheet) NestedScrollView mNesteScrollView;
@@ -203,6 +206,7 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
     private void initSheet(){
         mBehavior = NoAnchorBottomSheetBehavior.from(mNesteScrollView);
         mBehavior.setState(NoAnchorBottomSheetBehavior.STATE_COLLAPSED);
+        mBehavior.setPeekHeight(getSheetHeadHeight());
         mBehavior.setBottomSheetCallback(new NoAnchorBottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
@@ -491,6 +495,10 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
         mTargetText.setText(poi.getName());
         mPoiTitleText.setText(poi.getName());
         mPoiDescText.setText(poi.getPoiId());
+        mPoiDetailLayout.setVisibility(View.VISIBLE);
+        mNesteScrollView.setVisibility(View.VISIBLE);
+        mFloatBtn.show();
+        mBehavior.setPeekHeight(getSheetHeadHeight());
         mAmap.clear();
         mAmap.addMarker(new MarkerOptions().position(poi.getCoordinate()).title(poi.getName()));
     }
@@ -526,7 +534,7 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
         }
     }
 
-    @OnClick({R.id.route_plan_return_btn,R.id.route_plan_start_edit_layout,R.id.route_plan_to_edit_layout,
+    @OnClick({R.id.route_plan_return_btn,R.id.top_search_layout,R.id.route_plan_start_edit_layout,R.id.route_plan_to_edit_layout,
             R.id.route_plan_exchange_btn,R.id.route_plan_float_btn,R.id.navi_start_btn,R.id.navi_start_btn_1})
     public void onViewclik(View view){
         if (FirstLocate){
@@ -535,6 +543,10 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
         switch (view.getId()){
             case R.id.route_plan_return_btn:
                 finish();
+                break;
+            case R.id.top_search_layout:
+                Location location3=mAmap.getMyLocation();
+                PoiSearchActivity.start(mContext,location3.getExtras(),location3.getLatitude(),location3.getLongitude(),PoiSearchActivity.FROM_TARGET);
                 break;
             case R.id.route_plan_start_edit_layout:
                 Location location1=mAmap.getMyLocation();
@@ -556,7 +568,7 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
                 if (mEndPoi==null){
                     return;
                 }
-                routeSearch(mStartPoi,mEndPoi,TYPE_DRIVE);
+                routeSearch(mStartPoi,mEndPoi,mSelectedType);
                 break;
             case R.id.navi_start_btn:
             case R.id.navi_start_btn_1:
@@ -600,7 +612,7 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
     private int getTopLayoutHeight(){
 //        RelativeLayout.LayoutParams lp=(RelativeLayout.LayoutParams) mTopLayout.getLayoutParams();
         Log.d("czh",mTopLayoutHeight+"top height");
-        return mTopLayoutHeight;
+        return mTopLayout.getHeight();
     }
 
     private void routeSearch(Poi startPoi, Poi targetPoi, int type){
@@ -642,26 +654,18 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
         if (errorCode==1000){
             if (driveRouteResult != null && driveRouteResult.getPaths() != null){
                 if (driveRouteResult.getPaths().size() > 0){
-                    if (mBusResultRview.getVisibility()==View.VISIBLE){
-                        ViewAnimUtils.popupoutWithInterpolator(mBusResultRview, new ViewAnimUtils.AnimEndListener() {
-                            @Override
-                            public void onAnimEnd() {
-                                mBusResultRview.setVisibility(View.GONE);
-                            }
-                        });
-                    }
+                    updateUiAfterRouted();
+
                     mDriveRouteResult=driveRouteResult;
-                    drawDriveRoutes(mDriveRouteResult,mDriveRouteResult.getPaths().get(0));
                     DrivePath path=mDriveRouteResult.getPaths().get(0);
 
-                    mPoiDetailLayout.setVisibility(View.GONE);
                     mDrivePathAdapter=new DrivePathAdapter(mContext,path.getSteps());
                     mPathDetailRecView.setAdapter(mDrivePathAdapter);
                     updatePathGeneral(path);
-                    mTLightsText.setVisibility(View.VISIBLE);
                     mTLightsText.setText(getString(R.string.route_plan_path_traffic_lights,path.getTotalTrafficlights()+""));
+
                     mBehavior.setPeekHeight(getSheetHeadHeight());
-                    mNesteScrollView.setVisibility(View.VISIBLE);
+                    drawDriveRoutes(mDriveRouteResult,mDriveRouteResult.getPaths().get(0));
                 }else if (driveRouteResult != null && driveRouteResult.getPaths() == null) {
                     Toast.makeText(mContext,R.string.no_result,Toast.LENGTH_LONG).show();
                 }
@@ -678,7 +682,18 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
         if (errorCode==1000){
             if (busRouteResult != null && busRouteResult.getPaths() != null){
                 if (busRouteResult.getPaths().size() > 0){
+                    if (mTopLayout.getVisibility()!=View.VISIBLE){
+//                        mTopSearchLayout.setVisibility(View.GONE);
+                        mFloatBtn.hide();
+                        ViewAnimUtils.dropDownWithInterpolator(mTopLayout, new ViewAnimUtils.AnimEndListener() {
+                            @Override
+                            public void onAnimEnd() {
+                                mTopLayout.setVisibility(View.VISIBLE);
+                            }
+                        });
+                    }
                     mNesteScrollView.setVisibility(View.GONE);
+
                     mBusRouteResult = busRouteResult;
                     mBusResultAdapter=new BusResultListAdapter(mContext,busRouteResult);
                     mBusResultRview.setAdapter(mBusResultAdapter);
@@ -705,26 +720,15 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
         if (errorCode==1000){
             if (walkRouteResult != null && walkRouteResult.getPaths() != null){
                 if (walkRouteResult.getPaths().size() > 0){
-                    if (mBusResultRview.getVisibility()==View.VISIBLE){
-                        ViewAnimUtils.popupoutWithInterpolator(mBusResultRview, new ViewAnimUtils.AnimEndListener() {
-                            @Override
-                            public void onAnimEnd() {
-                                mBusResultRview.setVisibility(View.GONE);
+                    updateUiAfterRouted();
 
-                            }
-                        });
-                    }
                     mWalkRouteResult = walkRouteResult;
-                    drawWalkRoutes(mWalkRouteResult,mWalkRouteResult.getPaths().get(0));
-
                     WalkPath path=mWalkRouteResult.getPaths().get(0);
-                    mPoiDetailLayout.setVisibility(View.GONE);
                     mWalkStepAdapter=new WalkStepAdapter(mContext,path.getSteps());
                     mPathDetailRecView.setAdapter(mWalkStepAdapter);
                     updatePathGeneral(path);
-                    mTLightsText.setVisibility(View.GONE);
                     mBehavior.setPeekHeight(getSheetHeadHeight());
-                    mNesteScrollView.setVisibility(View.VISIBLE);
+                    drawWalkRoutes(mWalkRouteResult,mWalkRouteResult.getPaths().get(0));
                 }else if (walkRouteResult != null && walkRouteResult.getPaths() == null) {
                     Toast.makeText(mContext,R.string.no_result,Toast.LENGTH_LONG).show();
                 }
@@ -741,24 +745,14 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
         if (errorCode==1000){
             if (rideRouteResult != null && rideRouteResult.getPaths() != null){
                 if (rideRouteResult.getPaths().size() > 0){
-                    if (mBusResultRview.getVisibility()==View.VISIBLE){
-                        ViewAnimUtils.popupoutWithInterpolator(mBusResultRview, new ViewAnimUtils.AnimEndListener() {
-                            @Override
-                            public void onAnimEnd() {
-                                mBusResultRview.setVisibility(View.GONE);
+                    updateUiAfterRouted();
 
-                            }
-                        });
-                    }
                     mRideRouteResult = rideRouteResult;
                     RidePath path=mRideRouteResult.getPaths().get(0);
 
-                    mPoiDetailLayout.setVisibility(View.GONE);
                     mRideStepAdapter=new RideStepAdapter(mContext,path.getSteps());
                     updatePathGeneral(path);
-                    mTLightsText.setVisibility(View.GONE);
                     mBehavior.setPeekHeight(getSheetHeadHeight());
-                    mNesteScrollView.setVisibility(View.VISIBLE);
                     drawRideRoutes(mRideRouteResult,mRideRouteResult.getPaths().get(0));
                 }else if (rideRouteResult != null && rideRouteResult.getPaths() == null) {
                     Toast.makeText(mContext,R.string.no_result,Toast.LENGTH_LONG).show();
@@ -771,11 +765,35 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
         }
     }
 
+    private void updateUiAfterRouted(){
+        if (mTopLayout.getVisibility()!=View.VISIBLE){
+            mFloatBtn.hide();
+            ViewAnimUtils.dropDownWithInterpolator(mTopLayout, new ViewAnimUtils.AnimEndListener() {
+                @Override
+                public void onAnimEnd() {
+                    mTopLayout.setVisibility(View.VISIBLE);
+                }
+            });
+        }
+        if (mBusResultRview.getVisibility()==View.VISIBLE){
+            ViewAnimUtils.popupoutWithInterpolator(mBusResultRview, new ViewAnimUtils.AnimEndListener() {
+                @Override
+                public void onAnimEnd() {
+                    mBusResultRview.setVisibility(View.GONE);
+
+                }
+            });
+        }
+        mPoiDetailLayout.setVisibility(View.GONE);
+        mTLightsText.setVisibility(View.GONE);
+        mNesteScrollView.setVisibility(View.VISIBLE);
+    }
+
 
 
     private void drawDriveRoutes(DriveRouteResult driveRouteResult, DrivePath path){
         mAmap.clear();
-        DrivingRouteOverlay drivingRouteOverlay = new DrivingRouteOverlay(
+        final DrivingRouteOverlay drivingRouteOverlay = new DrivingRouteOverlay(
                 mContext, mAmap, path,
                 driveRouteResult.getStartPos(),driveRouteResult.getTargetPos(),
                 null);
@@ -826,6 +844,32 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
         drawBusRoutes(mBusRouteResult,busPath);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        if (mTopLayout.getVisibility()==View.VISIBLE){
+            ViewAnimUtils.pushOutWithInterpolator(mTopLayout, new ViewAnimUtils.AnimEndListener() {
+                @Override
+                public void onAnimEnd() {
+                    mTopLayout.setVisibility(View.GONE);
+                    mAmap.clear();
+                    mTopSearchLayout.setVisibility(View.VISIBLE);
+                    mNesteScrollView.setVisibility(View.GONE);
+                    mFloatBtn.hide();
+                }
+            });
+            if (mBusResultRview.getVisibility()==View.VISIBLE){
+                ViewAnimUtils.popupoutWithInterpolator(mBusResultRview, new ViewAnimUtils.AnimEndListener() {
+                    @Override
+                    public void onAnimEnd() {
+                        mBusResultRview.setVisibility(View.GONE);
+                    }
+                });
+            }
+            return;
+        }
+        super.onBackPressed();
+    }
 
     @Override
     protected void onDestroy() {

@@ -71,7 +71,9 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            >
 
             <TextView
                 android:id="@+id/path_detail_traffic_light_text"
@@ -104,35 +106,35 @@
         </RelativeLayout>
 
 
-    </LinearLayout>
 
-
-    <LinearLayout
-        android:id="@+id/route_plan_poi_detail_layout"
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:padding="@dimen/space08">
-
-        <TextView
-            android:id="@+id/route_plan_poi_title"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/route_plan_poi_detail_layout"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="搜索结果"
-            android:textColor="@color/textDefualt"
-            android:textSize="16sp" />
+            android:visibility="gone"
+            android:padding="@dimen/space08">
 
-        <TextView
-            android:id="@+id/route_plan_poi_desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space10"
-            tools:text="具体位置"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/textDefualt2"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/route_plan_poi_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="搜索结果"
+                android:textColor="@color/textDefualt"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/route_plan_poi_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space10"
+                tools:text="具体位置"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/textDefualt2"
+                android:textSize="14sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

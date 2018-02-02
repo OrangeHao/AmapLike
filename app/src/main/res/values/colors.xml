@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorAccent">#7C4DFF</color>
+    <color name="colorPrimaryLight">#B2DFDB</color>
 
     <color name="colorAccentSelect">#17a05a</color>
     <color name="transparent">#00000000</color>
@@ -11,9 +12,11 @@
     <color name="itemBackgroud">#ffffff</color>
     <color name="itemBackgroudSelect">#cccccc</color>
     <!-- 默认字体颜色-->
-    <color name="textDefualt">#333333</color>
-    <color name="textDefualt2">#666666</color>
+    <color name="textDefualt">#212121</color>
+    <color name="textDefualt2">#757575</color>
     <color name="textDefualt3">#999999</color>
+
+    <color name="colorDivider">#bdbdbd</color>
     <!-- 标题颜色-->
     <color name="titleText">#ffffff</color>
     <color name="titleTextSelect">#80ffffff</color>

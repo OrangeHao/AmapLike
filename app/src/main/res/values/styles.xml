@@ -14,13 +14,9 @@
         <!-- APP默认字体颜色-->
         <item name="android:textColor">@color/textDefualt</item>
         <!-- APP默认字体大小-->
-        <!-- 导航栏-->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <!-- 标题栏-->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <!-- 系统控件样式-->
         <item name="colorAccent">@color/colorAccent</item>
-        <!-- 编辑框-->
     </style>
 
 </resources>

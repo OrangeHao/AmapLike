@@ -30,11 +30,31 @@
             android:src="@drawable/icon_c11"
             android:layout_centerVertical="true"/>
 
+        <LinearLayout
+            android:id="@+id/top_search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/space12"
+            android:layout_margin="@dimen/space16"
+            android:background="@drawable/selector_shape_bg_white_gray"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font18"
+                android:layout_gravity="center_vertical"
+                android:text="@string/route_plan_search_poi"
+                />
+
+        </LinearLayout>
+
         <RelativeLayout
             android:id="@+id/topLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
+            android:visibility="invisible"
             android:paddingTop="@dimen/space08"
             app:layout_behavior="@string/TopLayout_Behavior"
             >
@@ -141,7 +161,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/topLayout"
             android:background="@color/white"
-            android:visibility="gone"
+            android:visibility="invisible"
             />
     </RelativeLayout>
 
@@ -155,6 +175,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/white"
+        android:visibility="gone"
         app:behavior_peekHeight="80dp"
         app:anchorPoint="100dp"
         app:behavior_hideable="false"
@@ -173,13 +194,13 @@
         android:id="@+id/route_plan_float_btn"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:visibility="gone"
         android:layout_margin="@dimen/space16"
         android:src="@drawable/icon_route_btn"
-        app:layout_behavior="@string/FAB_Behavior"
         app:layout_anchor="@id/bottom_sheet"
         app:layout_anchorGravity="right|top"
         app:borderWidth="0dp"
         android:clickable="true"/>
-
+    <!--app:layout_behavior="@string/FAB_Behavior"-->
 
 </android.support.design.widget.CoordinatorLayout>

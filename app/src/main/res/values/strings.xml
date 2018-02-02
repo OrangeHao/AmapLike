@@ -7,6 +7,7 @@
     <string name="route_plan_home">回家(长按设置)</string>
     <string name="route_plan_company">去公司(长按设置)</string>
     <string name="route_plan_setpoi">点击设置</string>
+    <string name="route_plan_search_poi">查找地点、公交、地铁</string>
     <string name="route_plan_drive_fast">速度最快</string>
     <string name="route_plan_drive">驾车</string>
     <string name="route_plan_bus">公交</string>
