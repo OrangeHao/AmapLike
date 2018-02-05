@@ -506,7 +506,7 @@ public class RoutePlanActivity extends AppCompatActivity implements RouteSearch.
         mEndPoi=poi;
         mTargetText.setText(poi.getName());
         mPoiTitleText.setText(poi.getName());
-        mPoiDescText.setText(poi.getPoiId());
+        mPoiDescText.setText(poi.toString());
         mPathLayout.setVisibility(View.GONE);
         mPathLayout1.setVisibility(View.GONE);
         mPathLayout2.setVisibility(View.GONE);
