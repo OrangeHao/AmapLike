@@ -29,3 +29,7 @@
 <br>
 Copy the code or Add it as a module
 
+### 如果地图无法定位 
+<br>
+1.检查项目配置的高德地图的key  2.运行时权限问题，该项目没做相关适配
+
